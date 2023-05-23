@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -13,7 +14,7 @@ import javax.persistence.Table;
 @Table(name = "categoria")
 public class Categoria {
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nome;
 	
@@ -26,6 +27,11 @@ public class Categoria {
 	public Categoria(String nome, List<PossuirCategoriaDiscussao> discussoes) {
 		this.nome = nome;
 		this.discussoes = discussoes;
+	}
+	
+	public Categoria(String nome) {
+		this.nome = nome;
+		this.discussoes = new ArrayList<PossuirCategoriaDiscussao>();
 	}
 
 	public int getId() {

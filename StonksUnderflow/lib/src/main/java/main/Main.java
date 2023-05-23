@@ -7,13 +7,13 @@ import org.hibernate.Session;
 
 import dao.DAOCategoria;
 import dao.DAODiscussao;
+import dao.DAOModerador;
 import dao.DAOResposta;
 import dao.DAOUsuarioPadrao;
 import hibernate.HibernateConfiguration;
 import model.Categoria;
 import model.Discussao;
 import model.Resposta;
-import model.Usuario;
 import model.UsuarioPadrao;
 import utils.ENUMStatusDiscussao;
 
@@ -21,21 +21,25 @@ public class Main {
 	public static void main(String[] args) {
 		HibernateConfiguration hbCfg = new HibernateConfiguration();
 		Session hbSession = hbCfg.getSession();
-		DAOCategoria daoCategoria = new DAOCategoria();
-		List<Categoria> categorias = new ArrayList<Categoria>();
-		Categoria c = daoCategoria.getCategoria(1);
-		categorias.add(c);
-		DAOUsuarioPadrao daoUsuarioPadrao = new DAOUsuarioPadrao();
-		UsuarioPadrao u = new UsuarioPadrao("Lucas", 10);
-		daoUsuarioPadrao.adicionarOuAlterarUsuarioPadrao(u);
-		List<UsuarioPadrao> usuarios = daoUsuarioPadrao.getUsuariosPadrao("Lu");
-		System.out.println(usuarios);
-		Discussao d = new Discussao("Deu um problema aqui", "Tava codando com Java e deu tudo errado", ENUMStatusDiscussao.ABERTA, categorias, usuarios.get(0));
-		DAODiscussao daoDiscussao = new DAODiscussao();
-		daoDiscussao.adicionarOuAlterarDiscussao(d);
-		d = daoDiscussao.getDiscussoes("um problema").get(0);
-		Resposta r = new Resposta("A culpa é sua", 1 , u, d, null);
 		DAOResposta daoResposta = new DAOResposta();
-		daoResposta.adicionarOuAlterarResposta(r);
+		DAOCategoria daoCategoria = new DAOCategoria();
+		DAODiscussao daoDiscussao = new DAODiscussao();
+		DAOUsuarioPadrao daoUsuarioPadrao = new DAOUsuarioPadrao();
+		DAOModerador daoModerador = new DAOModerador();
+//		
+//		UsuarioPadrao usuario = new UsuarioPadrao("Pedro", 10);
+//		Categoria categoria = new Categoria("Java");
+//		daoUsuarioPadrao.adicionarOuAlterarUsuarioPadrao(usuario);
+//		daoCategoria.adicionarOuAlterarCategoria(categoria);
+//		
+//		List<Categoria> categorias = new ArrayList<Categoria>();
+//		categorias.add(categoria);
+//		Discussao discussao = new Discussao("Problemas com Java", "Tudo dando errado", ENUMStatusDiscussao.ABERTA, categorias, usuario);
+//		daoDiscussao.adicionarOuAlterarDiscussao(discussao);
+//		
+		List<Discussao> discussoes = daoDiscussao.getDiscussoes();
+		for(Discussao d: discussoes) {
+			System.out.println(d);
+		}
 	}
 }

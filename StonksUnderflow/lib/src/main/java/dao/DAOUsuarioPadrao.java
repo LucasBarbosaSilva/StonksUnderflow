@@ -4,12 +4,11 @@ import java.util.List;
 
 import javax.persistence.Query;
 
-import model.UsuarioPadrao;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import hibernate.HibernateConfiguration;
-import model.Usuario;
+import model.UsuarioPadrao;
 
 public class DAOUsuarioPadrao implements IDAOUsuarioPadrao {
 private Session session;
