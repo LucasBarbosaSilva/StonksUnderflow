@@ -37,7 +37,62 @@ public class Resposta {
         this.discussao = discussao;
         this.moderador = moderador;
     }
+    
+    
 
+    public int getId() {
+		return id;
+	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public int getOrdem() {
+		return ordem;
+	}
+
+	public void setOrdem(int ordem) {
+		this.ordem = ordem;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public Discussao getDiscussao() {
+		return discussao;
+	}
+
+	public void setDiscussao(Discussao discussao) {
+		this.discussao = discussao;
+	}
+
+	public Moderador getModerador() {
+		return moderador;
+	}
+
+	public void setModerador(Moderador moderador) {
+		this.moderador = moderador;
+	}
+
+	@Override
+    public String toString() {
+    	String resposta = "Usuário "+usuario.getNome()+" respondeu:";
+    	resposta += "\n"+this.descricao;
+    	return resposta;
+    }
 
 }

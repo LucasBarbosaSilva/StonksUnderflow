@@ -96,6 +96,23 @@ public class Discussao {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	
+	@Override
+	public String toString() {
+		String discussao = "";
+		discussao += "["+this.status.getStatus()+"] "+this.descricao;
+		discussao += "\nUsuário: "+this.usuario.getNome();
+		discussao += "\n--------------------------------------";
+		discussao += "\nRespostas:";
+		discussao += "\n**************";
+		for (Resposta r: this.respostas) {
+			discussao += "\n"+r;
+			discussao += "\n**************";
+		}
+		
+		return discussao;
+		
+	}
 
 	
 	

@@ -40,21 +40,42 @@ public abstract class Usuario {
 		this.score = score;
 	}
 
-	public abstract int getId();
+	public int getId() {
+		return id;
+	}
 
-	public abstract void setId(int id);
+	public void setId(int id) {
+		this.id = id;
+	}
 
-	public abstract String getNome();
+	public String getNome() {
+		return nome;
+	}
 
-	public abstract void setNome(String nome);
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-	public abstract long getScore();
+	public long getScore() {
+		return score;
+	}
 
-	public abstract void setScore(long score);
+	public void setScore(long score) {
+		this.score = score;
+	}
 
-	public abstract List<Discussao> getDiscussoes();
+	public List<Discussao> getDiscussoes() {
+		return discussoes;
+	}
 
-	public abstract void setDiscussoes(List<Discussao> discussoes);
+	public void setDiscussoes(List<Discussao> discussoes) {
+		this.discussoes = discussoes;
+	}
+
+	@Override
+	public String toString() {
+		return this.nome + " Score: "+this.score;
+	}
 	
 	
 }

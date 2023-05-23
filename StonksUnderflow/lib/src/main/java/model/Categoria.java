@@ -52,7 +52,10 @@ public class Categoria {
 		this.discussoes = discussoes;
 	}	
 
-	
+	@Override
+	public String toString() {
+		return this.nome;
+	}
 	
 	
 }
