@@ -37,7 +37,25 @@ public class Main {
 //		Discussao discussao = new Discussao("Problemas com Java", "Tudo dando errado", ENUMStatusDiscussao.ABERTA, categorias, usuario);
 //		daoDiscussao.adicionarOuAlterarDiscussao(discussao);
 //		
-		List<Discussao> discussoes = daoDiscussao.getDiscussoes();
+		
+		
+		DAODiscussao daoDiscussao2 = new DAODiscussao();
+		
+		Categoria categoria2 = new Categoria("MySQL");
+		Categoria categoria3 = new Categoria("Xamp");
+		
+		List<Categoria> categorias = new ArrayList<Categoria>();
+		categorias.add(categoria2);
+		categorias.add(categoria3);
+		daoCategoria.adicionarOuAlterarCategoria(categoria2);
+		daoCategoria.adicionarOuAlterarCategoria(categoria3);
+		
+		UsuarioPadrao usuario = new UsuarioPadrao("Cayo", 11);
+		daoUsuarioPadrao.adicionarOuAlterarUsuarioPadrao(usuario);
+		Discussao discussao2 = new Discussao("Problemas com MySQL e Xamp", "Algo dando errado", ENUMStatusDiscussao.ABERTA, categorias, usuario);
+		daoDiscussao2.adicionarOuAlterarDiscussao(discussao2);
+		
+		List<Discussao> discussoes = daoDiscussao2.getDiscussoes();
 		for(Discussao d: discussoes) {
 			System.out.println(d);
 		}

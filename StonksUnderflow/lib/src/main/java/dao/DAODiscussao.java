@@ -8,7 +8,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import hibernate.HibernateConfiguration;
+import model.Categoria;
 import model.Discussao;
+import model.PossuirCategoriaDiscussao;
 
 public class DAODiscussao implements IDAODiscussao {
 	private Session session;
@@ -39,7 +41,11 @@ public class DAODiscussao implements IDAODiscussao {
 		Transaction t = this.session.beginTransaction(); //início da transação
 		this.session.saveOrUpdate(d);
 		t.commit(); //finalizando transação
-		
+		t = this.session.beginTransaction(); //início da transação
+		for (PossuirCategoriaDiscussao p: d.getCategorias()) {
+			this.session.saveOrUpdate(p);
+		}
+		t.commit(); //finalizando transação
 	}
 
 	@Override
