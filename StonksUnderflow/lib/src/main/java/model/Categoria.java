@@ -17,13 +17,12 @@ public class Categoria {
 	private String nome;
 	
 	@OneToMany(mappedBy = "categoria")
-	private List<possuirCategoriaDiscussao> discussoes;
+	private List<PossuirCategoriaDiscussao> discussoes;
 
 	public Categoria() {
 	}	
 
-	public Categoria(int id, String nome, List<possuirCategoriaDiscussao> discussoes) {
-		this.id = id;
+	public Categoria(String nome, List<PossuirCategoriaDiscussao> discussoes) {
 		this.nome = nome;
 		this.discussoes = discussoes;
 	}
@@ -44,11 +43,11 @@ public class Categoria {
 		this.nome = nome;
 	}
 
-	public List<possuirCategoriaDiscussao> getDiscussoes() {
+	public List<PossuirCategoriaDiscussao> getDiscussoes() {
 		return discussoes;
 	}
 
-	public void setDiscussoes(List<possuirCategoriaDiscussao> discussoes) {
+	public void setDiscussoes(List<PossuirCategoriaDiscussao> discussoes) {
 		this.discussoes = discussoes;
 	}	
 

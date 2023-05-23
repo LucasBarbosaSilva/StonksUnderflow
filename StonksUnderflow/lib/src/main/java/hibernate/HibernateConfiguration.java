@@ -11,7 +11,7 @@ import model.Discussao;
 import model.Moderador;
 import model.Usuario;
 import model.UsuarioPadrao;
-import model.possuirCategoriaDiscussao;
+import model.PossuirCategoriaDiscussao;
 
 public class HibernateConfiguration {
 
@@ -35,7 +35,7 @@ public class HibernateConfiguration {
 
 		//Classes persistentes - inicio
 		cfg.addAnnotatedClass(Discussao.class);
-		cfg.addAnnotatedClass(possuirCategoriaDiscussao.class);
+		cfg.addAnnotatedClass(PossuirCategoriaDiscussao.class);
 //		cfg.addAnnotatedClass(Usuario.class);
 		cfg.addAnnotatedClass(UsuarioPadrao.class);
 		cfg.addAnnotatedClass(Categoria.class);
