@@ -27,8 +27,7 @@ public abstract class Usuario {
 		//Para o hibernate
 	}
 	
-	public Usuario(int id, String nome, long score) {
-		this.id = id;
+	public Usuario(String nome, long score) {
 		this.nome = nome;
 		this.score = score;
 	}

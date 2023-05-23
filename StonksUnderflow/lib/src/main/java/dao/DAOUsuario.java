@@ -8,53 +8,53 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import hibernate.HibernateConfiguration;
-import model.Categoria;
+import model.Usuario;
 
-public class DAOCategoria implements IDAOCategoria{
+public class DAOUsuario implements IDAOUsuario{
 private Session session;
 	
-	public DAOCategoria() {
+	public DAOUsuario() {
 		HibernateConfiguration config = new HibernateConfiguration();
 		this.session = config.getSession();
 	}
 	
 	@Override
-	public Categoria getCategoria(int id) {
-		 Categoria output = this.session.get(Categoria.class, id);
+	public Usuario getUsuario(int id) {
+		 Usuario output = this.session.get(Usuario.class, id);
 		 return output;
 	}
 	
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Categoria> getCategorias(){
-		List<Categoria> output = null;
-		String hql = "FROM Categoria c";
+	public List<Usuario> getUsuarios(){
+		List<Usuario> output = null;
+		String hql = "FROM Usuario u";
 		Query query = this.session.createQuery(hql);
 		output = query.getResultList();
 		return output;
 	}
 	
 	@Override
-	public void adicionarOuAlterarCategoria(Categoria c) {
+	public void adicionarOuAlterarUsuario(Usuario u) {
 		Transaction t = this.session.beginTransaction(); //início da transação
-		this.session.saveOrUpdate(c);
+		this.session.saveOrUpdate(u);
 		t.commit(); //finalizando transação
 	}
 	
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Categoria> getCategorias(String filtroNome){
-		List<Categoria> output = null;
-		String hql = "FROM Categoria c WHERE c.nome LIKE '%"+filtroNome+"%'";
+	public List<Usuario> getUsuarios(String filtroNome){
+		List<Usuario> output = null;
+		String hql = "FROM Usuario u WHERE u.nome LIKE '%"+filtroNome+"%'";
 		Query query = this.session.createQuery(hql);
 		output = query.getResultList();
 		return output;
 	}
 	
 	@Override
-	public void apagarCategoria(Categoria c) {
+	public void apagarUsuario(Usuario u) {
 		Transaction t = this.session.beginTransaction();
-		this.session.delete(c);
+		this.session.delete(u);
 		t.commit();
 	}
 	

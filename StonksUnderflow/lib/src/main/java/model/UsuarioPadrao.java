@@ -13,8 +13,8 @@ public class UsuarioPadrao extends Usuario {
 		super();
 	}
 	
-	public UsuarioPadrao(int id, String nome, long score) {
-		super(id, nome, score);
+	public UsuarioPadrao(String nome, long score) {
+		super(nome, score);
 	}
 
 	@Override
