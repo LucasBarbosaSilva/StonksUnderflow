@@ -26,6 +26,9 @@ public class Discussao {
 	@ManyToOne
 	@JoinColumn(name="codigo_usuarioFK", referencedColumnName = "id")
 	private Usuario usuario;
+
+	@OneToMany(mappedBy = "discussao")
+	private List<Resposta> respostas;
 	
 	public Discussao() {
 		//Para o hibernate
