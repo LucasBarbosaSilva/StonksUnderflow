@@ -25,7 +25,7 @@ public class Discussao {
 	@OneToMany(mappedBy = "discussao")
 	private List<PossuirCategoriaDiscussao> categorias;
 	@ManyToOne
-	@JoinColumn(name="codigo_usuarioFK", referencedColumnName = "id")
+	@JoinColumn(name="id_usuarioFK", referencedColumnName = "id")
 	private Usuario usuario;
 
 	@OneToMany(mappedBy = "discussao")

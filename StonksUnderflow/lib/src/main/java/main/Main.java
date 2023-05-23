@@ -11,7 +11,6 @@ import dao.DAOUsuario;
 import hibernate.HibernateConfiguration;
 import model.Categoria;
 import model.Discussao;
-import model.PossuirCategoriaDiscussao;
 import model.Usuario;
 import model.UsuarioPadrao;
 import utils.ENUMStatusDiscussao;
@@ -19,6 +18,7 @@ import utils.ENUMStatusDiscussao;
 public class Main {
 	public static void main(String[] args) {
 		HibernateConfiguration hbCfg = new HibernateConfiguration();
+		Session hbSession = hbCfg.getSession();
 		DAOCategoria daoCategoria = new DAOCategoria();
 		List<Categoria> categorias = new ArrayList<Categoria>();
 		Categoria c = daoCategoria.getCategoria(1);
@@ -31,6 +31,5 @@ public class Main {
 		Discussao d = new Discussao("Deu um problema aqui", "Tava codando com Java e deu tudo errado", ENUMStatusDiscussao.ABERTA, categorias, usuarios.get(0));
 		DAODiscussao daoDiscussao = new DAODiscussao();
 		daoDiscussao.adicionarOuAlterarDiscussao(d);
-		Session hbSession = hbCfg.getSession();
 	}
 }
