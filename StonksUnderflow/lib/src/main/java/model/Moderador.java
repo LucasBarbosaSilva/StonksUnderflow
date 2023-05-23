@@ -19,8 +19,8 @@ public class Moderador extends Usuario{
 		super();
 	}
 	
-	public Moderador(long registro, long grauReputacao) {
-		super();
+	public Moderador(String nome, long score, long registro, long grauReputacao) {
+		super(nome, score);
 		this.registro = registro;
 		this.grauReputacao = grauReputacao;
 	}

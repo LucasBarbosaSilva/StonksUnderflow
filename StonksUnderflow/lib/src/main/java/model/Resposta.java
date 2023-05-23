@@ -10,8 +10,10 @@ public class Resposta {
     @GeneratedValue
     private int id;
 
+    @Column(nullable = false)
     private String descricao;
 
+    @Column(nullable = false)
     private int ordem;
 
     @ManyToOne
