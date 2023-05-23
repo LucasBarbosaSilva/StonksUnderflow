@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "possuirCategoriaDiscussao")
-public class possuirCategoriaDiscussao implements Serializable{
+public class PossuirCategoriaDiscussao implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@ManyToOne
@@ -21,11 +21,11 @@ public class possuirCategoriaDiscussao implements Serializable{
 	@JoinColumn(name = "id_categoriaFK", referencedColumnName = "id")
 	private Categoria categoria;
 	
-	public possuirCategoriaDiscussao() {
+	public PossuirCategoriaDiscussao() {
 		
 	}
 	
-	public possuirCategoriaDiscussao(Discussao discussao, Categoria categoria) {
+	public PossuirCategoriaDiscussao(Discussao discussao, Categoria categoria) {
 		this.discussao = discussao;
 		this.categoria = categoria;
 	}

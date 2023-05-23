@@ -22,17 +22,20 @@ public class Discussao {
 	private String descricao;
 	private ENUMStatusDiscussao status;
 	@OneToMany(mappedBy = "discussao")
-	private List<possuirCategoriaDiscussao> categorias;
+	private List<PossuirCategoriaDiscussao> categorias;
 	@ManyToOne
 	@JoinColumn(name="codigo_usuarioFK", referencedColumnName = "id")
 	private Usuario usuario;
+
+	@OneToMany(mappedBy = "discussao")
+	private List<Resposta> respostas;
 	
 	public Discussao() {
 		//Para o hibernate
 	}
 
 	public Discussao(int id, String titulo, String descricao, ENUMStatusDiscussao status,
-			List<possuirCategoriaDiscussao> categorias, Usuario usuario) {
+			List<PossuirCategoriaDiscussao> categorias, Usuario usuario) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
@@ -74,11 +77,11 @@ public class Discussao {
 		this.status = status;
 	}
 
-	public List<possuirCategoriaDiscussao> getCategorias() {
+	public List<PossuirCategoriaDiscussao> getCategorias() {
 		return categorias;
 	}
 
-	public void setCategorias(List<possuirCategoriaDiscussao> categorias) {
+	public void setCategorias(List<PossuirCategoriaDiscussao> categorias) {
 		this.categorias = categorias;
 	}
 

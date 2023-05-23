@@ -8,8 +8,10 @@ import org.hibernate.service.ServiceRegistry;
 
 import model.Categoria;
 import model.Discussao;
+import model.Moderador;
 import model.Usuario;
-import model.possuirCategoriaDiscussao;
+import model.UsuarioPadrao;
+import model.PossuirCategoriaDiscussao;
 
 public class HibernateConfiguration {
 
@@ -20,9 +22,9 @@ public class HibernateConfiguration {
 		cfg = new Configuration();
 		cfg.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL55Dialect");
 		cfg.setProperty("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");
-		cfg.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:33061/stonks");
+		cfg.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/stonks");
 		cfg.setProperty("hibernate.connection.username", "root"); 
-		cfg.setProperty("hibernate.connection.password", "1234");
+		cfg.setProperty("hibernate.connection.password", "password");
 
        //opcionais - INICIO
 		cfg.setProperty("hibernate.connection.characterEncoding", "utf8");
@@ -33,9 +35,11 @@ public class HibernateConfiguration {
 
 		//Classes persistentes - inicio
 		cfg.addAnnotatedClass(Discussao.class);
-		cfg.addAnnotatedClass(possuirCategoriaDiscussao.class);
-		cfg.addAnnotatedClass(Usuario.class);
+		cfg.addAnnotatedClass(PossuirCategoriaDiscussao.class);
+//		cfg.addAnnotatedClass(Usuario.class);
+		cfg.addAnnotatedClass(UsuarioPadrao.class);
 		cfg.addAnnotatedClass(Categoria.class);
+		cfg.addAnnotatedClass(Moderador.class);
 		//Classes persistentes - fim
 		
 	    ServiceRegistry serviceRegistry = 

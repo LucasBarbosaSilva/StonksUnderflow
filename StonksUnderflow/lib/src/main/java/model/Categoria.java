@@ -14,15 +14,16 @@ public class Categoria {
 	@Id
 	@GeneratedValue	
 	private int id;
+	private String nome;
+	
 	@OneToMany(mappedBy = "categoria")
-	private List<possuirCategoriaDiscussao> discussoes;
+	private List<PossuirCategoriaDiscussao> discussoes;
 
 	public Categoria() {
 	}	
 
-	public Categoria(int id, List<possuirCategoriaDiscussao> discussoes) {
-		super();
-		this.id = id;
+	public Categoria(String nome, List<PossuirCategoriaDiscussao> discussoes) {
+		this.nome = nome;
 		this.discussoes = discussoes;
 	}
 
@@ -34,13 +35,23 @@ public class Categoria {
 		this.id = id;
 	}
 
-	public List<possuirCategoriaDiscussao> getDiscussoes() {
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public List<PossuirCategoriaDiscussao> getDiscussoes() {
 		return discussoes;
 	}
 
-	public void setDiscussoes(List<possuirCategoriaDiscussao> discussoes) {
+	public void setDiscussoes(List<PossuirCategoriaDiscussao> discussoes) {
 		this.discussoes = discussoes;
-	}
+	}	
+
+	
 	
 	
 }
