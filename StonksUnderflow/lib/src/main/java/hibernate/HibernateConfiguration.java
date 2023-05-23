@@ -6,6 +6,11 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
+import model.Categoria;
+import model.Discussao;
+import model.Usuario;
+import model.possuirCategoriaDiscussao;
+
 public class HibernateConfiguration {
 
 	private Configuration cfg;
@@ -13,7 +18,7 @@ public class HibernateConfiguration {
 
 	public HibernateConfiguration(){
 		cfg = new Configuration();
-		cfg.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+		cfg.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL55Dialect");
 		cfg.setProperty("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");
 		cfg.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:33061/stonks");
 		cfg.setProperty("hibernate.connection.username", "root"); 
@@ -27,6 +32,10 @@ public class HibernateConfiguration {
          //opcionais - FIM
 
 		//Classes persistentes - inicio
+		cfg.addAnnotatedClass(Discussao.class);
+		cfg.addAnnotatedClass(possuirCategoriaDiscussao.class);
+		cfg.addAnnotatedClass(Usuario.class);
+		cfg.addAnnotatedClass(Categoria.class);
 		//Classes persistentes - fim
 		
 	    ServiceRegistry serviceRegistry = 
