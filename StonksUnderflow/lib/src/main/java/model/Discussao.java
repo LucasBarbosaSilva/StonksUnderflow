@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -34,14 +35,17 @@ public class Discussao {
 		//Para o hibernate
 	}
 
-	public Discussao(int id, String titulo, String descricao, ENUMStatusDiscussao status,
-			List<PossuirCategoriaDiscussao> categorias, Usuario usuario) {
+	public Discussao(String titulo, String descricao, ENUMStatusDiscussao status,
+			List<Categoria> categorias, Usuario usuario) {
 		super();
-		this.id = id;
 		this.titulo = titulo;
 		this.descricao = descricao;
 		this.status = status;
-		this.categorias = categorias;
+		List<PossuirCategoriaDiscussao> list = new ArrayList<PossuirCategoriaDiscussao>();
+		for (Categoria c: categorias) {
+			list.add(new PossuirCategoriaDiscussao(this, c));
+		}
+		this.categorias = list;
 		this.usuario = usuario;
 	}
 
