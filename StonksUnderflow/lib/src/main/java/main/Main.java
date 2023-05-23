@@ -2,12 +2,11 @@ package main;
 
 import java.util.ArrayList;
 
+import model.*;
 import org.hibernate.Session;
 
 import dao.DAOCategoria;
 import hibernate.HibernateConfiguration;
-import model.Categoria;
-import model.PossuirCategoriaDiscussao;
 
 public class Main {
 	public static void main(String[] args) {

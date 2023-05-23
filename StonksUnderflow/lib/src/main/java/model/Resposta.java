@@ -26,4 +26,18 @@ public class Resposta {
     @JoinColumn(name = "id_moderadorFK", referencedColumnName = "id")
     private Moderador moderador;
 
+    public Resposta(){
+
+    }
+
+    public Resposta(String descricao, int ordem, Usuario usuario, Discussao discussao, Moderador moderador){
+        this.descricao = descricao;
+        this.ordem = ordem;
+        this.usuario = usuario;
+        this.discussao = discussao;
+        this.moderador = moderador;
+    }
+
+
+
 }

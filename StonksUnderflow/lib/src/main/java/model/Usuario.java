@@ -22,7 +22,15 @@ public abstract class Usuario {
 
 	@OneToMany(mappedBy = "usuario")
 	private List<Resposta> respostas;
-	
+
+	public List<Resposta> getRespostas() {
+		return respostas;
+	}
+
+	public void setRespostas(List<Resposta> respostas) {
+		this.respostas = respostas;
+	}
+
 	public Usuario() {
 		//Para o hibernate
 	}
