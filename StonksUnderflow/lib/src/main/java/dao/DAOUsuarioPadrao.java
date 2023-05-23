@@ -4,30 +4,31 @@ import java.util.List;
 
 import javax.persistence.Query;
 
+import model.UsuarioPadrao;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import hibernate.HibernateConfiguration;
 import model.Usuario;
 
-public class DAOUsuario implements IDAOUsuario{
+public class DAOUsuarioPadrao implements IDAOUsuarioPadrao {
 private Session session;
 	
-	public DAOUsuario() {
+	public DAOUsuarioPadrao() {
 		HibernateConfiguration config = new HibernateConfiguration();
 		this.session = config.getSession();
 	}
 	
 	@Override
-	public Usuario getUsuario(int id) {
-		 Usuario output = this.session.get(Usuario.class, id);
+	public UsuarioPadrao getUsuarioPadrao(int id) {
+		UsuarioPadrao output = this.session.get(UsuarioPadrao.class, id);
 		 return output;
 	}
 	
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Usuario> getUsuarios(){
-		List<Usuario> output = null;
+	public List<UsuarioPadrao> getUsuariosPadrao(){
+		List<UsuarioPadrao> output = null;
 		String hql = "FROM Usuario u";
 		Query query = this.session.createQuery(hql);
 		output = query.getResultList();
@@ -35,7 +36,7 @@ private Session session;
 	}
 	
 	@Override
-	public void adicionarOuAlterarUsuario(Usuario u) {
+	public void adicionarOuAlterarUsuarioPadrao(UsuarioPadrao u) {
 		Transaction t = this.session.beginTransaction(); //início da transação
 		this.session.saveOrUpdate(u);
 		t.commit(); //finalizando transação
@@ -43,8 +44,8 @@ private Session session;
 	
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Usuario> getUsuarios(String filtroNome){
-		List<Usuario> output = null;
+	public List<UsuarioPadrao> getUsuariosPadrao(String filtroNome){
+		List<UsuarioPadrao> output = null;
 		String hql = "FROM Usuario u WHERE u.nome LIKE '%"+filtroNome+"%'";
 		Query query = this.session.createQuery(hql);
 		output = query.getResultList();
@@ -52,7 +53,7 @@ private Session session;
 	}
 	
 	@Override
-	public void apagarUsuario(Usuario u) {
+	public void apagarUsuarioPadrao(UsuarioPadrao u) {
 		Transaction t = this.session.beginTransaction();
 		this.session.delete(u);
 		t.commit();
