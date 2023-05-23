@@ -22,9 +22,9 @@ public class HibernateConfiguration {
 		cfg = new Configuration();
 		cfg.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL55Dialect");
 		cfg.setProperty("hibernate.connection.driver_class", "com.mysql.cj.jdbc.Driver");
-		cfg.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/stonks");
+		cfg.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:33061/stonks");
 		cfg.setProperty("hibernate.connection.username", "root"); 
-		cfg.setProperty("hibernate.connection.password", "password");
+		cfg.setProperty("hibernate.connection.password", "1234");
 
        //opcionais - INICIO
 		cfg.setProperty("hibernate.connection.characterEncoding", "utf8");
