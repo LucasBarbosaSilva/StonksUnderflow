@@ -8,7 +8,9 @@ import org.hibernate.service.ServiceRegistry;
 
 import model.Categoria;
 import model.Discussao;
+import model.Moderador;
 import model.Usuario;
+import model.UsuarioPadrao;
 import model.possuirCategoriaDiscussao;
 
 public class HibernateConfiguration {
@@ -34,8 +36,10 @@ public class HibernateConfiguration {
 		//Classes persistentes - inicio
 		cfg.addAnnotatedClass(Discussao.class);
 		cfg.addAnnotatedClass(possuirCategoriaDiscussao.class);
-		cfg.addAnnotatedClass(Usuario.class);
+//		cfg.addAnnotatedClass(Usuario.class);
+		cfg.addAnnotatedClass(UsuarioPadrao.class);
 		cfg.addAnnotatedClass(Categoria.class);
+		cfg.addAnnotatedClass(Moderador.class);
 		//Classes persistentes - fim
 		
 	    ServiceRegistry serviceRegistry = 

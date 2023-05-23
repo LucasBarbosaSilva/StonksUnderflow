@@ -11,7 +11,7 @@ import hibernate.HibernateConfiguration;
 import model.Categoria;
 
 public class DAOCategoria implements IDAOCategoria{
-private Session session;
+	private Session session;
 	
 	public DAOCategoria() {
 		HibernateConfiguration config = new HibernateConfiguration();

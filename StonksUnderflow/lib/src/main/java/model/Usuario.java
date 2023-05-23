@@ -5,12 +5,13 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuario")
-public class Usuario {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class Usuario {
 	@Id
 	@GeneratedValue
 	private int id;
@@ -28,36 +29,22 @@ public class Usuario {
 		this.nome = nome;
 		this.score = score;
 	}
+
+	public abstract int getId();
+
+	public abstract void setId(int id);
+
+	public abstract String getNome();
+
+	public abstract void setNome(String nome);
+
+	public abstract long getScore();
+
+	public abstract void setScore(long score);
+
+	public abstract List<Discussao> getDiscussoes();
+
+	public abstract void setDiscussoes(List<Discussao> discussoes);
 	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public long getScore() {
-		return score;
-	}
-
-	public void setScore(long score) {
-		this.score = score;
-	}
-
-	public List<Discussao> getDiscussoes() {
-		return discussoes;
-	}
-
-	public void setDiscussoes(List<Discussao> discussoes) {
-		this.discussoes = discussoes;
-	}
+	
 }
