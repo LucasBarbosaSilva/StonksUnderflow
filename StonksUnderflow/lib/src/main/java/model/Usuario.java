@@ -19,6 +19,9 @@ public abstract class Usuario {
 	private long score;
 	@OneToMany(mappedBy = "usuario")
 	private List<Discussao> discussoes;
+
+	@OneToMany(mappedBy = "usuario")
+	private List<Resposta> respostas;
 	
 	public Usuario() {
 		//Para o hibernate
